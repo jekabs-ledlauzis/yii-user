@@ -355,6 +355,6 @@ class UserModule extends CWebModule
 	 * @return user object or false
 	 */
 	public function users() {
-		return User;
+		return self::user();
 	}
 }
