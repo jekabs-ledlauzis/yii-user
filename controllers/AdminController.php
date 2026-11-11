@@ -485,7 +485,7 @@ class AdminController extends Controller
 
     public function actionGenCodeCard($request_type)
     {
-        
+        $model   = $this->loadModel();
         // Validate settings
         if (!Yii::app()->user->checkAccess("UserAdmin")) {
             $this->redirect(array('view','id'=>$model->id));
@@ -496,8 +496,7 @@ class AdminController extends Controller
         if (empty($code_card['host']) || empty($code_card['apy_key']) || empty($code_card['crypt_key'])) {
             $this->redirect(array('view','id'=>$model->id));
         }
-        
-		$model   = $this->loadModel();
+
         $profile = $model->profile;
         
         $error = '';
